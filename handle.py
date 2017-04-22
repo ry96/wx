@@ -1,7 +1,10 @@
 import hashlib
 import web
 import reply
+import logging
 import receive
+
+log = logging.Logger(__name__)
 
 class Handle(object):
     def POST(self):
@@ -22,8 +25,8 @@ class Handle(object):
                 return replyMsg.send()
             else:
                 return "success"
-        except Exception, Arg:
-            print Arg
+        except Exception,Arg:
+            log.exception(Arg)
             return Arg
 
 
