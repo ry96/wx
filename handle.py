@@ -14,9 +14,8 @@ class Handle(object):
                 fromUser = recMsg.ToUserName
                 content = "test"
                 replyMsg = reply.TextMsg(toUser,fromUser,content)
-                return recMsg.send()
+                return replyMsg.send()
             else:
-                print '咱不处理'
                 return "success"
         except Exception, Arg:
             return Arg
