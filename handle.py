@@ -4,7 +4,6 @@ import reply
 import logging
 import receive
 
-log = logging.Logger(__name__)
 
 class Handle(object):
     def POST(self):
@@ -26,7 +25,7 @@ class Handle(object):
             else:
                 return "success"
         except Exception,Arg:
-            log.exception(Arg)
+            logging.exception(Arg)
             return Arg
 
 
