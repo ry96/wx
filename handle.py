@@ -1,7 +1,27 @@
 import hashlib
 import web
+import reply
+import receive
 
 class Handle(object):
+    def POST(self):
+        try:
+            webData = web.data()
+            print 'Handle Post webdata is ', webData
+            recMsg = receive.parse_xml(webData)
+            if isinstance(recMsg, receive.Msg) and recMsg.MsgType == 'text':
+                toUser = recMsg.FromUserName
+                fromUser = recMsg.ToUserName
+                content = "test"
+                replyMsg = reply.TextMsg(toUser,fromUser,content)
+                return recMsg.send()
+            else:
+                print '咱不处理'
+                return "success"
+        except Exception, Arg:
+            return Arg
+
+
     def GET(self):
         try:
             data = web.input()
