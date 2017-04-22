@@ -23,6 +23,7 @@ class Handle(object):
             else:
                 return "success"
         except Exception, Arg:
+            print Arg
             return Arg
 
 
